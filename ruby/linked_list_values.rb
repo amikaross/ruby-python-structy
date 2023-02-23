@@ -7,14 +7,26 @@ class Node
   end
 end
 
+# def linked_list_values(head)
+#   arr = []
+#   current_node = head
+#   while !current_node.nil? do 
+#     arr.append(current_node.val)
+#     current_node = current_node.next
+#   end
+#   arr
+# end
+
 def linked_list_values(head)
   arr = []
-  current_node = head
-  while !current_node.nil? do 
-    arr.append(current_node.val)
-    current_node = current_node.next
-  end
+  fill_values(head, arr)
   arr
+end
+
+def fill_values(head, arr)
+  return if head.nil?
+  arr.append(head.val)
+  fill_values(head.next, arr)
 end
 
 a = Node.new("a")
