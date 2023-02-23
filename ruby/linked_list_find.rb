@@ -7,13 +7,19 @@ class Node
   end
 end
 
+# def linked_list_find(head, target)
+#   current = head
+#   while !current.nil? do 
+#     return true if current.val == target
+#     current = current.next
+#   end
+#   false
+# end
+
 def linked_list_find(head, target)
-  current = head
-  while !current.nil? do 
-    return true if current.val == target
-    current = current.next
-  end
-  false
+  return false if head.nil?
+  return true if head.val == target 
+  return linked_list_find(head.next, target)
 end
 
 a = Node.new("a")
@@ -25,4 +31,4 @@ a.next = b
 b.next = c
 c.next = d
 
-p linked_list_find(a, "e")
+p linked_list_find(a, "b")
